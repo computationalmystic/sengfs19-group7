@@ -12,7 +12,7 @@ function getNavBar()
 }
 function displayNavBar(x)
 {
-    document.getElementById("navbar").innerHTML = "<a id='home' href = 'index.html'>Home</a><a id='data1'>Data 1</a><a id='data2'>Data 2</a><a id='data1'>Data 3</a>";
+    document.getElementById("navbar").innerHTML = "<a id='home' href = 'http://augur.osshealth.io/'>Home</a><a id='data1' href = 'contributers.html'>Contributers</a><a id='data2'>Issues</a><a id='data1'>Commits</a>";
     if (x == 0)
     {
         document.getElementById("home").className = "active";
@@ -30,3 +30,6 @@ function displayNavBar(x)
         document.getElementById("data3").classname = "active";
     }
 }
+
+//To do: fix active class not working
+
