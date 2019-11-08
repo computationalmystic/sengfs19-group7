@@ -43,9 +43,9 @@ button
     color: darkslategray;
 }
 
-.active
+.activeButton
 {
-    background-color: #374341;
+    background-color: darkslategray;
 }
 
 .topbar .click
@@ -55,8 +55,8 @@ button
 
  /* Dropdown Button */
 .dropbtn {
-  background-color: #3498DB;
-  color: white;
+  background-color: white;
+  color: darkslategray;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -65,7 +65,8 @@ button
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+  background-color: darkslategray;
+    color: white;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -97,3 +98,33 @@ button
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;} 
+
+@media only screen and (max-width: 915px) /*this changes the max width (how far it can go before it shrinks)*/
+{
+    .topbar a
+    {
+        display: none;
+    }
+    .topbar a.click
+    {
+        float: right;
+        display: block;
+    }
+    .topbar.newClass
+    {
+        position: sticky;
+        z-index: 2;
+    }
+    .topbar.newClass .click
+    {
+        position: absolute;
+        right: 0; 
+        top: 0;
+    }
+    .topbar.newClass a, .topbar.newClass div 
+    {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
