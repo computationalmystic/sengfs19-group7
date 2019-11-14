@@ -93,13 +93,36 @@ button
   display: block;
 }
 
+
+/*for the hover effect*/
+.tip
+{
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: papayawhip;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+.buttons:hover .tip
+{
+    visibility: visible;
+    opacity: 1;
+}
+
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;} 
 
-@media only screen and (max-width: 915px) /*this changes the max width (how far it can go before it shrinks)*/
+@media only screen and (max-width: 500px) /*this changes the max width (how far it can go before it shrinks)*/
 {
     .topbar a
     {
@@ -134,3 +157,4 @@ button
     border: 1px solid black;
     margin: 1rem;
     }
+

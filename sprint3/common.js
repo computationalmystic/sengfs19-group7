@@ -120,4 +120,3 @@ function secondDropdown()
         console.error('Fetch Error -', err);  
       });
 }
-
