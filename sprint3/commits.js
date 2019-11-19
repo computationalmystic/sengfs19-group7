@@ -1,4 +1,6 @@
- function loadGraph() {
+//http://augur.osshealth.io/api_docs/#api-Experimental-top_committers_repo 
+
+function loadGraph() {
      
     let repoId = document.getElementById("repoId").value ; 
     let groupId = document.getElementById("groupId").value ;
