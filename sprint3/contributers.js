@@ -28,12 +28,10 @@ function loadGraph() {
 
         }]
     });
-        var obj = $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/" + groupId + "/repos/" + repoId + "/contributors", function(data) {
-            var x = JSON.parse(obj.responseText);
-            console.log(x);
+        $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/" + groupId + "/repos/" + repoId + "/contributors", function(data) {
             $.each(data, function(key, value){
                 chart1.options.title.text = "Representation of contributers for  " + value.repo_name;
-                dataPoints.push({x: parseInt(value.user_id), y: parseInt(value.total)});
+                dataPoints.push({label: parseInt(value.user_id), label: parseInt(value.total)});
                 console.log(value);
             });
             chart1.render();
