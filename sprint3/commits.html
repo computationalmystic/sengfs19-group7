@@ -27,14 +27,14 @@
       
         <select id= "groupId" name="repo group" onclick='secondDropdown()'></select>
         <select id= "repoId" name="repo stuff"></select>
-        <button class="buttons" onclick= "loadGraph()">Go<span class="tip">Please allow up to ten seconds for the list to populate</span></button>
+        <button class="buttons" onclick= "loadSecondGraph(); loadGraph();">Go<span class="tip">Please allow up to ten seconds for the list to populate</span></button>
         <div id="accordion">
             
         </div>
         
         <div id="chartContainer" style="height: 300px; width: 100%;"></div>
         
-        
+          <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
        
         
         <script src="common.js"></script>
