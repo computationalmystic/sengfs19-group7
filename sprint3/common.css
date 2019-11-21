@@ -1,7 +1,10 @@
 body
 {
-    background-color: yellow;
+    background-color: lightblue;
 }
+
+
+
 button
 {
     margin-top: 5px;
@@ -20,8 +23,8 @@ button
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    background-color: black;
-    color: yellow;
+    background-color: steelblue;
+    color: black;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -31,7 +34,7 @@ button
 {
     float: left;
     display: block;
-    color: yellow;
+    color: black;
     text-align: center;
     padding: 15px;
     text-decoration: none;
