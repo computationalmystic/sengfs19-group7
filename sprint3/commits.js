@@ -1,8 +1,10 @@
- function loadGraph() {
+// 
+
+function loadGraph() {
+      let repoId = document.getElementById("repoId").value ; 
+        let groupId = document.getElementById("groupId").value ;
      
-    let repoId = document.getElementById("repoId").value ; 
-    let groupId = document.getElementById("groupId").value ;
-     
+ 
 
 var dataPoints = [];
 
@@ -20,13 +22,15 @@ var chart = new CanvasJS.Chart("chartContainer",{
         
     },
         data: [{
-        type: "column",
+        type: "pie",
         dataPoints : dataPoints
     
         
     }]
 });
-    $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/24/repos/21623/top-committers", function(data) {  
+   
+       
+    $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/"+ groupId +"/repos/"+repoId+"/top-committers", function(data) {  
     $.each(data, function(key, value){
          console.log(value.email);
         dataPoints.push({label: value.email, y: parseInt(value.commits)});
@@ -36,6 +40,52 @@ var chart = new CanvasJS.Chart("chartContainer",{
   
 });
       
+}
+
+function loadSecondGraph(){
+    
+     let repoId = document.getElementById("repoId").value ; 
+        let groupId = document.getElementById("groupId").value ;
+     
+var dataPoints = [];
+
+var chart = new CanvasJS.Chart("chartContainer2",{
+    
+    
+    
+    title:{
+        text:"Commits in Repo Over Time"
+    },
+    axisX:{
+        
+        title: "Date"
+    },
+    axisY:{
+        
+        title: "Total Commits"
+        
+    },
+        data: [{
+        type: "line",
+        dataPoints : dataPoints
+    
+        
+    }]
+});
+   //$.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/"+ groupId +"/repos/"+repoId+"/committers", function(data) {  
+    
+     $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/"+groupId+"/repos/"+repoId+"/committers", function(data) {  
+    $.each(data, function(key, value){
+   
+        dataPoints.push({label: value.date, y: parseInt(value.count)});
+  
+    });
+    chart.render();
+  
+});
+      
+    
+    
 }
 
 
