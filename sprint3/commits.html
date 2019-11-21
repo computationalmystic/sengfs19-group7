@@ -14,9 +14,7 @@
         <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>  
         
         <script src="commits.js"></script>
-        
-       
-        
+           
     </head>
     <body onload="displayNavBar(3); firstDropdown();">
         <div class="topbar" id="navbar">
@@ -24,12 +22,12 @@
         </div>
         <h1>Commits Data</h1>
      
-      
         <select id= "groupId" name="repo group" onclick='secondDropdown()'></select>
         <select id= "repoId" name="repo stuff"></select>
+
         <button class="buttons" onclick= "loadSecondGraph(); loadGraph();">Go<span class="tip">Please allow up to ten seconds for the list to populate</span></button>
         <div id="accordion">
-            
+
         </div>
         
         <div id="chartContainer" style="height: 300px; width: 100%;"></div>

@@ -104,7 +104,7 @@ function secondDropdown()
 
             for (let i = 0; i < data.length; i++) 
             {
-                console.log(document.getElementById('groupId').value);
+//                console.log(document.getElementById('groupId').value);
                 if (document.getElementById('groupId').value == data[i].repo_group_id)
                 {
                     option = document.createElement('option');
