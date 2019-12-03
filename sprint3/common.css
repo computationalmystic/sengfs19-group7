@@ -28,6 +28,8 @@ button
     position: sticky;
     top: 0;
     z-index: 2;
+    border-style: inset;
+    
 }
 
 .topbar div, .topbar a
