@@ -32,12 +32,11 @@ function loadGraph() {
             $.each(data, function(key, value){
                 chart1.options.title.text = "Representation of contributers for " + value.repo_name;
                 dataPoints.push({label: parseInt(value.user_id), y: parseInt(value.total)});
-                console.log(value);
+                //console.log(value);
             });
             chart1.render();
 
         });
-
 }
 
 function loadGraph2() {
@@ -114,7 +113,7 @@ function loadGraph3() {
             $.each(data, function(key, value){
                 chart1.options.title.text = "Representation of new contributions of commits for " + value.repo_name;
                 dataPoints.push({label: value.commit_date, y: value.count});
-                console.log(value);
+                //console.log(value);
             });
             chart1.render();
 
