@@ -1,4 +1,5 @@
-// 
+// use 24 and 3rd one down for error
+// 25150 - 25151
     
 function loadGraph() {
       let repoId = document.getElementById("repoId").value ; 
@@ -115,6 +116,64 @@ var chart = new CanvasJS.Chart("chartContainer2",{
       
     
     
+}
+
+
+function loadThirdGraph() {
+      let repoId = document.getElementById("repoId").value ; 
+        let groupId = document.getElementById("groupId").value ;
+     
+ $.ajax({
+    url: "http://augur.osshealth.io:5000/api/unstable/repo-groups/"+ groupId +"/repos/"+repoId+"/pull-requests-merge-contributor-new",
+    statusCode: {
+        500: function() {
+            alert(" 500 Error Was returned for the new contributors API Endpoint");
+            console.log('500 ');
+        }
+    }
+    }); 
+
+var dataPoints = [];
+
+var chart = new CanvasJS.Chart("chartContainer3",{
+    title:{
+        text:"Representation of top commiters"
+    },
+    axisX:{
+        
+        title: "Commit Date"
+    },
+    axisY:{
+        
+        title: "Count of Commits"
+        
+    },
+        data: [{
+        type: "line",
+        dataPoints : dataPoints
+    
+        
+    }]
+});
+   
+       
+    $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/"+ groupId +"/repos/"+repoId+"/pull-requests-merge-contributor-new", function(data) {  
+    $.each(data, function(key, value){
+         console.log(value.commit_date);
+        chart.options.title.text="Representation of commits of New Contributors from " + value.repo_name;
+        //chartContainer.options.title.text = "Representation of top committers of" + value.repo_name;
+        
+        
+        dataPoints.push({label: value.commit_date, y: parseInt(value.count)});
+        console.log(value);
+    });
+    chart.render();
+  
+        
+        
+        
+});
+      
 }
 
 
