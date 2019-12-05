@@ -32,7 +32,7 @@ function loadGraph() {
     //http://augur.osshealth.io:5000/api/unstable/repo-groups/25151/repos/25179/contributors
         $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/" + groupId + "/closed-issues-count", function(data) {
             $.each(data, function(key, value){
-                chart1.options.title.text = "Closed Issues for " + groupId;
+                chart1.options.title.text = "Closed Issues for " + value.repo_name;
                 dataPoints.push({label: parseInt(value.repo_id), y: parseInt(value.closed_count)});
              
             });
@@ -75,7 +75,7 @@ function loadGraph2() {
     //http://augur.osshealth.io:5000/api/unstable/repo-groups/25151/repos/25179/issues-active"
         $.getJSON("http://augur.osshealth.io:5000/api/unstable/repo-groups/" + groupId + "/repos/" + repoId + "/issues-active", function(data) {
             $.each(data, function(key, value){
-                chart2.options.title.text = "Active Issues By date for " + groupId;
+                chart2.options.title.text = "Active Issues By date for " + value.repo_name;
                 dataPoints.push({label: parseInt(value.date), y: parseInt(value.issues)});
              
             });
